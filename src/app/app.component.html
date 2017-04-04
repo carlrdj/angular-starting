@@ -1,3 +1,31 @@
 <h1>
   {{title}}
 </h1>
+<h2>
+  {{name}}
+</h2>
+
+<input type="text" [(ngModel)]="name">
+
+<button (click)="eventoClick()">Click</button>
+
+
+<div *ngFor="let voto of votos">
+	<input-component voto={{voto.voto}} (addVoto)=addVoto($event)></input-component>
+</div>
+
+<h1>{{votacion}}</h1>
+<hr>
+cantidad: <input type="text" [(ngModel)]="cantidad"><br>
+dolar: <input type="text" [(ngModel)]="factor">
+<hr>
+<span newstylus>
+El valor es {{cantidad}} x {{factor}} = {{cantidad | conversorPipe:factor }}
+</span>
+<hr>
+
+<ul>
+	<li *ngFor="let ticket of tickets">
+		Ticket N°: {{ticket.id}}
+	</li>
+</ul>
